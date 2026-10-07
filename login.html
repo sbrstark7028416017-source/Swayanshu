@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In | Smart College Portal</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        body {
+            background: #f1f5f9;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .login-container { width: 100%; max-width: 420px; padding: 1.5rem; }
+        .login-card {
+            background-color: #ffffff;
+            border-radius: 24px;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.08);
+            padding: 2.5rem 2rem;
+            border: 1px solid #e2e8f0;
+        }
+        .login-header { text-align: center; margin-bottom: 2rem; }
+        .login-logo {
+            width: 64px; height: 64px; background: #2563eb; color: #ffffff;
+            border-radius: 18px; display: inline-flex; align-items: center;
+            justify-content: center; font-size: 2rem; margin-bottom: 1.25rem;
+            box-shadow: 0 8px 20px rgba(37, 99, 235, 0.3);
+        }
+        .styled-input {
+            background-color: #eef2ff; border: 1px solid #cbd5e1;
+            border-radius: 12px; padding: 0.8rem 1rem; font-size: 0.95rem; width: 100%;
+        }
+        .password-wrapper { position: relative; display: flex; align-items: center; }
+        .password-toggle-icon { position: absolute; right: 14px; cursor: pointer; color: #64748b; }
+        .btn-signin {
+            background: #2563eb; color: #ffffff; border-radius: 12px; padding: 0.85rem;
+            font-weight: 700; font-size: 1rem; width: 100%; border: none; cursor: pointer;
+            display: flex; align-items: center; justify-content: center; gap: 0.5rem; margin-top: 1rem;
+        }
+        .demo-credentials {
+            background-color: #f8fafc; border: 1px solid #e2e8f0;
+            border-radius: 14px; padding: 1.1rem; margin-top: 1.5rem; font-size: 0.875rem;
+        }
+    </style>
+</head>
+<body>
+<div class="login-container">
+    <div class="login-card">
+        <div class="login-header">
+            <div class="login-logo"><i class="fa-solid fa-graduation-cap"></i></div>
+            <h2 style="font-weight: 800; color: #0f172a; font-size: 1.75rem; margin-bottom: 0.25rem;">Smart College Portal</h2>
+            <p style="color: #64748b; font-size: 0.925rem;">Sign in to access your dashboard</p>
+        </div>
+
+        <form id="loginForm">
+            <div class="form-group">
+                <label class="form-label" for="username">Email or Username / Roll No</label>
+                <input type="text" id="username" name="username" class="styled-input" placeholder="Enter your email or roll number" required>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label" for="password">Password</label>
+                <div class="password-wrapper">
+                    <input type="password" id="password" name="password" class="styled-input" placeholder="Enter your password" required>
+                    <i class="fa-solid fa-eye-slash password-toggle-icon" id="togglePassword"></i>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label" for="role">Select Role</label>
+                <select id="role" name="role" class="styled-input" required>
+                    <option value="Admin">Admin</option>
+                    <option value="Teacher">Teacher</option>
+                    <option value="Student">Student</option>
+                </select>
+            </div>
+
+            <button type="submit" class="btn-signin">
+                <i class="fa-solid fa-right-to-bracket"></i> Sign In
+            </button>
+        </form>
+
+        <div style="text-align: center; margin-top: 1.25rem; padding-top: 1rem; border-top: 1px solid #e2e8f0; font-size: 0.9rem; color: #64748b;">
+            Don't have a student account? <a href="register.html" style="color: #2563eb; font-weight: 700; text-decoration: none;"><i class="fa-solid fa-user-plus"></i> Register Here</a>
+        </div>
+
+        <div class="demo-credentials">
+            <h4 style="margin-bottom: 0.4rem; color: #1e293b;"><i class="fa-solid fa-key" style="color: #2563eb;"></i> Demo Credentials</h4>
+            <p><strong>Admin:</strong> admin@ssipmt.com / admin123</p>
+            <p><strong>Teacher:</strong> prof.sharma@ssipmt.com / teacher123</p>
+            <p><strong>Student:</strong> 101 / rahul@ssipmt.com / student123</p>
+        </div>
+    </div>
+</div>
+
+<script src="js/main.js"></script>
+<script>
+    document.getElementById('loginForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const role = document.getElementById('role').value;
+        if (role === 'Admin') {
+            window.location.href = 'admin_dashboard.html';
+        } else if (role === 'Teacher') {
+            window.location.href = 'teacher_dashboard.html';
+        } else if (role === 'Student') {
+            window.location.href = 'student_dashboard.html';
+        }
+    });
+</script>
+</body>
+</html>

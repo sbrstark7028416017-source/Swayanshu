@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Marks | Smart College Portal</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <a href="student_dashboard.html" class="sidebar-brand">
+                <div class="sidebar-brand-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+                <span>COLLEGE PORTAL</span>
+            </a>
+        </div>
+        <ul class="sidebar-menu">
+            <li class="sidebar-item"><a href="student_dashboard.html" class="sidebar-link"><i class="fa-solid fa-chart-pie"></i> <span>Dashboard</span></a></li>
+            <li class="sidebar-item"><a href="student_attendance.html" class="sidebar-link"><i class="fa-solid fa-calendar-check"></i> <span>My Attendance</span></a></li>
+            <li class="sidebar-item"><a href="student_marks.html" class="sidebar-link active"><i class="fa-solid fa-file-lines"></i> <span>My Marks</span></a></li>
+            <li class="sidebar-item"><a href="student_performance.html" class="sidebar-link"><i class="fa-solid fa-award"></i> <span>Performance Analysis</span></a></li>
+            <li class="sidebar-item"><a href="student_profile.html" class="sidebar-link"><i class="fa-solid fa-id-card"></i> <span>My Profile</span></a></li>
+        </ul>
+    </aside>
+
+    <div class="main-wrapper">
+        <header class="navbar">
+            <div class="navbar-title"><i class="fa-solid fa-university" style="color: var(--primary); margin-right: 8px;"></i> College Management System</div>
+            <div class="navbar-user">
+                <span class="user-badge">STUDENT</span>
+                <span style="font-weight: 600; font-size: 0.9rem;">Rahul Kumar (101)</span>
+                <a href="login.html" class="btn-logout"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
+            </div>
+        </header>
+
+        <main class="content-body">
+            <div class="page-header">
+                <div>
+                    <h1 class="page-title">Academic Examination Transcript</h1>
+                    <p class="page-subtitle">View marks obtained across CT-1, CT-2, Assignments, Mid-Terms, and End Semester Exams</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header"><h3 class="card-title"><i class="fa-solid fa-file-invoice" style="color: var(--primary); margin-right: 8px;"></i> Examination Marks Summary</h3></div>
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr><th>Subject Code</th><th>Subject Name</th><th>Exam Type</th><th>Obtained / Max</th><th>Percentage</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td><strong>CS301</strong></td><td>Data Structures & Algorithms</td><td>CT-1</td><td>18 / 20</td><td><span class="badge badge-success">90%</span></td></tr>
+                            <tr><td><strong>CS302</strong></td><td>Database Management System</td><td>CT-1</td><td>17 / 20</td><td><span class="badge badge-success">85%</span></td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

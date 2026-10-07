@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard | Smart College Portal</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <a href="student_dashboard.html" class="sidebar-brand">
+                <div class="sidebar-brand-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+                <span>COLLEGE PORTAL</span>
+            </a>
+        </div>
+        <ul class="sidebar-menu">
+            <li class="sidebar-item"><a href="student_dashboard.html" class="sidebar-link active"><i class="fa-solid fa-chart-pie"></i> <span>Dashboard</span></a></li>
+            <li class="sidebar-item"><a href="student_attendance.html" class="sidebar-link"><i class="fa-solid fa-calendar-check"></i> <span>My Attendance</span></a></li>
+            <li class="sidebar-item"><a href="student_marks.html" class="sidebar-link"><i class="fa-solid fa-file-lines"></i> <span>My Marks</span></a></li>
+            <li class="sidebar-item"><a href="student_performance.html" class="sidebar-link"><i class="fa-solid fa-award"></i> <span>Performance Analysis</span></a></li>
+            <li class="sidebar-item"><a href="student_profile.html" class="sidebar-link"><i class="fa-solid fa-id-card"></i> <span>My Profile</span></a></li>
+        </ul>
+    </aside>
+
+    <div class="main-wrapper">
+        <header class="navbar">
+            <div class="navbar-title">
+                <i class="fa-solid fa-university" style="color: var(--primary); margin-right: 8px;"></i>
+                College Management System
+            </div>
+            <div class="navbar-user">
+                <span class="user-badge">STUDENT</span>
+                <span style="font-weight: 600; font-size: 0.9rem;">Rahul Kumar (101)</span>
+                <a href="login.html" class="btn-logout"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
+            </div>
+        </header>
+
+        <main class="content-body">
+            <div class="page-header">
+                <div>
+                    <h1 class="page-title">Welcome, Rahul Kumar</h1>
+                    <p class="page-subtitle">Roll No: <strong>101</strong> | Branch: <strong>AIML</strong> | Semester: <strong>3</strong> | Section: <strong>A</strong></p>
+                </div>
+            </div>
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-card-top"><span class="stat-title">Overall Attendance</span><div class="stat-icon green"><i class="fa-solid fa-calendar-check"></i></div></div>
+                    <div class="stat-value">86.7%</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-card-top"><span class="stat-title">Overall Average Marks</span><div class="stat-icon blue"><i class="fa-solid fa-award"></i></div></div>
+                    <div class="stat-value">84.4%</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-card-top"><span class="stat-title">Enrolled Subjects</span><div class="stat-icon purple"><i class="fa-solid fa-book"></i></div></div>
+                    <div class="stat-value">5</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-card-top"><span class="stat-title">Active Warnings</span><div class="stat-icon green"><i class="fa-solid fa-triangle-exclamation"></i></div></div>
+                    <div class="stat-value">0</div>
+                </div>
+            </div>
+
+            <div class="card" style="margin-bottom: 2rem;">
+                <div class="card-header">
+                    <h3 class="card-title"><i class="fa-solid fa-chart-column" style="color: var(--primary); margin-right: 8px;"></i> Subject-Wise Attendance Breakdown</h3>
+                </div>
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Subject Code</th>
+                                <th>Subject Name</th>
+                                <th>Present / Total</th>
+                                <th>Attendance Percentage</th>
+                                <th>Status</th>
+                                <th>Target Calculator</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>CS301</strong></td>
+                                <td>Data Structures & Algorithms</td>
+                                <td>9 / 10</td>
+                                <td><span class="badge badge-success">90%</span></td>
+                                <td><span class="badge badge-success">Good Stand</span></td>
+                                <td><small style="color: var(--success); font-weight: 600;"><i class="fa-solid fa-check"></i> Requirement Met</small></td>
+                            </tr>
+                            <tr>
+                                <td><strong>CS302</strong></td>
+                                <td>Database Management System</td>
+                                <td>4 / 5</td>
+                                <td><span class="badge badge-success">80%</span></td>
+                                <td><span class="badge badge-success">Good Stand</span></td>
+                                <td><small style="color: var(--success); font-weight: 600;"><i class="fa-solid fa-check"></i> Requirement Met</small></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

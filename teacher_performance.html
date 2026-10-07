@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class Performance | Smart College Portal</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <a href="teacher_dashboard.html" class="sidebar-brand">
+                <div class="sidebar-brand-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+                <span>COLLEGE PORTAL</span>
+            </a>
+        </div>
+        <ul class="sidebar-menu">
+            <li class="sidebar-item"><a href="teacher_dashboard.html" class="sidebar-link"><i class="fa-solid fa-chart-pie"></i> <span>Dashboard</span></a></li>
+            <li class="sidebar-item"><a href="teacher_attendance.html" class="sidebar-link"><i class="fa-solid fa-calendar-check"></i> <span>Mark Attendance</span></a></li>
+            <li class="sidebar-item"><a href="teacher_marks.html" class="sidebar-link"><i class="fa-solid fa-pen-to-square"></i> <span>Enter Marks</span></a></li>
+            <li class="sidebar-item"><a href="teacher_students.html" class="sidebar-link"><i class="fa-solid fa-users"></i> <span>Assigned Students</span></a></li>
+            <li class="sidebar-item"><a href="teacher_performance.html" class="sidebar-link active"><i class="fa-solid fa-chart-line"></i> <span>Performance</span></a></li>
+        </ul>
+    </aside>
+
+    <div class="main-wrapper">
+        <header class="navbar">
+            <div class="navbar-title"><i class="fa-solid fa-university" style="color: var(--primary); margin-right: 8px;"></i> College Management System</div>
+            <div class="navbar-user">
+                <span class="user-badge">TEACHER</span>
+                <span style="font-weight: 600; font-size: 0.9rem;">Prof. Rajesh Sharma</span>
+                <a href="login.html" class="btn-logout"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
+            </div>
+        </header>
+
+        <main class="content-body">
+            <div class="page-header">
+                <div>
+                    <h1 class="page-title">Class Performance Analytics</h1>
+                    <p class="page-subtitle">Track academic score distributions and identify low-performing students</p>
+                </div>
+            </div>
+
+            <div class="card" style="margin-bottom: 2rem;">
+                <div class="card-header"><h3 class="card-title"><i class="fa-solid fa-chart-area" style="color: var(--primary); margin-right: 8px;"></i> Marks Distribution Chart</h3></div>
+                <canvas id="marksChart" height="180"></canvas>
+            </div>
+        </main>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script>
+        const ctx = document.getElementById('marksChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['CT-1', 'CT-2', 'Assignment', 'Mid-Term', 'ESE'],
+                datasets: [{
+                    label: 'Class Average %',
+                    data: [85, 78, 92, 80, 84],
+                    backgroundColor: 'rgba(37, 99, 235, 0.75)',
+                    borderRadius: 6
+                }]
+            },
+            options: { responsive: true, scales: { y: { beginAtZero: true, max: 100 } } }
+        });
+    </script>
+</body>
+</html>

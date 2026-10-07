@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mark Attendance | Smart College Portal</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <a href="teacher_dashboard.html" class="sidebar-brand">
+                <div class="sidebar-brand-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+                <span>COLLEGE PORTAL</span>
+            </a>
+        </div>
+        <ul class="sidebar-menu">
+            <li class="sidebar-item"><a href="teacher_dashboard.html" class="sidebar-link"><i class="fa-solid fa-chart-pie"></i> <span>Dashboard</span></a></li>
+            <li class="sidebar-item"><a href="teacher_attendance.html" class="sidebar-link active"><i class="fa-solid fa-calendar-check"></i> <span>Mark Attendance</span></a></li>
+            <li class="sidebar-item"><a href="teacher_marks.html" class="sidebar-link"><i class="fa-solid fa-pen-to-square"></i> <span>Enter Marks</span></a></li>
+            <li class="sidebar-item"><a href="teacher_students.html" class="sidebar-link"><i class="fa-solid fa-users"></i> <span>Assigned Students</span></a></li>
+            <li class="sidebar-item"><a href="teacher_performance.html" class="sidebar-link"><i class="fa-solid fa-chart-line"></i> <span>Performance</span></a></li>
+        </ul>
+    </aside>
+
+    <div class="main-wrapper">
+        <header class="navbar">
+            <div class="navbar-title">
+                <i class="fa-solid fa-university" style="color: var(--primary); margin-right: 8px;"></i>
+                College Management System
+            </div>
+            <div class="navbar-user">
+                <span class="user-badge">TEACHER</span>
+                <span style="font-weight: 600; font-size: 0.9rem;">Prof. Rajesh Sharma</span>
+                <a href="login.html" class="btn-logout"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
+            </div>
+        </header>
+
+        <main class="content-body">
+            <div class="page-header">
+                <div>
+                    <h1 class="page-title">Class Attendance Matrix</h1>
+                    <p class="page-subtitle">Mark or edit daily attendance for students in your assigned subjects</p>
+                </div>
+            </div>
+
+            <div class="card" style="margin-bottom: 1.5rem;">
+                <form method="GET" action="teacher_attendance.html">
+                    <div class="form-grid">
+                        <div class="form-group" style="margin-bottom: 0;">
+                            <label class="form-label">Select Assigned Class & Subject</label>
+                            <select name="assignment_id" class="form-select" required>
+                                <option value="1">Data Structures & Algorithms (CS301) - AIML Sem 3 Sec A</option>
+                                <option value="2">Database Management System (CS302) - AIML Sem 3 Sec A</option>
+                            </select>
+                        </div>
+                        <div class="form-group" style="margin-bottom: 0;">
+                            <label class="form-label">Attendance Date</label>
+                            <input type="date" name="date" class="form-control" value="2026-08-10" required>
+                        </div>
+                        <div class="form-group" style="margin-bottom: 0; display: flex; align-items: flex-end;">
+                            <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center;">
+                                <i class="fa-solid fa-list-check"></i> Fetch Student Roster
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <div>
+                        <h3 class="card-title"><i class="fa-solid fa-clipboard-user" style="color: var(--primary); margin-right: 8px;"></i> Student Attendance Sheet</h3>
+                        <small style="color: var(--text-muted);">Date: <strong>2026-08-10</strong> | Subject: <strong>Data Structures & Algorithms</strong></small>
+                    </div>
+                    <div style="display: flex; gap: 0.5rem;">
+                        <button type="button" id="markAllPresent" class="btn btn-secondary" style="font-size: 0.8rem;"><i class="fa-solid fa-circle-check" style="color: var(--success);"></i> Mark All Present</button>
+                        <button type="button" id="markAllAbsent" class="btn btn-secondary" style="font-size: 0.8rem;"><i class="fa-solid fa-circle-xmark" style="color: var(--danger);"></i> Mark All Absent</button>
+                    </div>
+                </div>
+
+                <form action="#" method="POST">
+                    <input type="hidden" name="assignment_id" value="1">
+                    <input type="hidden" name="subject_id" value="1">
+                    <input type="hidden" name="section_id" value="1">
+                    <input type="hidden" name="date" value="2026-08-10">
+
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Roll No</th>
+                                    <th>Student Name</th>
+                                    <th>Status Selection</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>101</strong></td>
+                                    <td>Rahul Kumar</td>
+                                    <td>
+                                        <div style="display: flex; gap: 1.5rem; align-items: center;">
+                                            <label style="cursor: pointer; color: var(--success); font-weight: 600;"><input type="radio" name="status_1" value="Present" checked> Present</label>
+                                            <label style="cursor: pointer; color: var(--danger); font-weight: 600;"><input type="radio" name="status_1" value="Absent"> Absent</label>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><strong>102</strong></td>
+                                    <td>Aman Singh</td>
+                                    <td>
+                                        <div style="display: flex; gap: 1.5rem; align-items: center;">
+                                            <label style="cursor: pointer; color: var(--success); font-weight: 600;"><input type="radio" name="status_2" value="Present"> Present</label>
+                                            <label style="cursor: pointer; color: var(--danger); font-weight: 600;"><input type="radio" name="status_2" value="Absent" checked> Absent</label>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><strong>103</strong></td>
+                                    <td>Ravi Gupta</td>
+                                    <td>
+                                        <div style="display: flex; gap: 1.5rem; align-items: center;">
+                                            <label style="cursor: pointer; color: var(--success); font-weight: 600;"><input type="radio" name="status_3" value="Present" checked> Present</label>
+                                            <label style="cursor: pointer; color: var(--danger); font-weight: 600;"><input type="radio" name="status_3" value="Absent"> Absent</label>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div style="padding: 1rem 0; border-top: 1px solid var(--border-color); display: flex; justify-content: flex-end;">
+                        <button type="submit" class="btn btn-primary" style="padding: 0.8rem 2rem; font-size: 1rem;">
+                            <i class="fa-solid fa-floppy-disk"></i> SUBMIT ATTENDANCE
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </main>
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

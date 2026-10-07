@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Students | Smart College Portal</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <a href="admin_dashboard.html" class="sidebar-brand">
+                <div class="sidebar-brand-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+                <span>COLLEGE PORTAL</span>
+            </a>
+        </div>
+        <ul class="sidebar-menu">
+            <li class="sidebar-item"><a href="admin_dashboard.html" class="sidebar-link"><i class="fa-solid fa-chart-pie"></i> <span>Dashboard</span></a></li>
+            <li class="sidebar-item"><a href="admin_departments.html" class="sidebar-link"><i class="fa-solid fa-building-columns"></i> <span>Departments</span></a></li>
+            <li class="sidebar-item"><a href="admin_branches.html" class="sidebar-link"><i class="fa-solid fa-code-branch"></i> <span>Branches</span></a></li>
+            <li class="sidebar-item"><a href="admin_students.html" class="sidebar-link active"><i class="fa-solid fa-user-graduate"></i> <span>Students</span></a></li>
+            <li class="sidebar-item"><a href="admin_teachers.html" class="sidebar-link"><i class="fa-solid fa-chalkboard-user"></i> <span>Teachers</span></a></li>
+            <li class="sidebar-item"><a href="admin_subjects.html" class="sidebar-link"><i class="fa-solid fa-book-open"></i> <span>Subjects</span></a></li>
+            <li class="sidebar-item"><a href="admin_reports.html" class="sidebar-link"><i class="fa-solid fa-file-contract"></i> <span>Reports</span></a></li>
+        </ul>
+    </aside>
+
+    <div class="main-wrapper">
+        <header class="navbar">
+            <div class="navbar-title"><i class="fa-solid fa-university" style="color: var(--primary); margin-right: 8px;"></i> College Management System</div>
+            <div class="navbar-user">
+                <span class="user-badge">ADMIN</span>
+                <span style="font-weight: 600; font-size: 0.9rem;">System Administrator</span>
+                <a href="login.html" class="btn-logout"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
+            </div>
+        </header>
+
+        <main class="content-body">
+            <div class="page-header">
+                <div>
+                    <h1 class="page-title">College Student Directory</h1>
+                    <p class="page-subtitle">View, filter, and register students across all departments and semesters</p>
+                </div>
+            </div>
+
+            <div class="card" style="margin-bottom: 1.5rem;">
+                <form onsubmit="filterStudents(); return false;">
+                    <div class="form-grid">
+                        <div class="form-group" style="margin-bottom: 0;">
+                            <label class="form-label">Search Name / Roll No</label>
+                            <input type="text" id="searchInput" class="form-control" placeholder="Type to search...">
+                        </div>
+                        <div class="form-group" style="margin-bottom: 0;">
+                            <label class="form-label">Branch</label>
+                            <select id="branchFilter" class="form-select" onchange="filterStudents()">
+                                <option value="">All Branches</option>
+                                <option value="AIML">AIML</option>
+                                <option value="CSE">CSE</option>
+                                <option value="CSE-AI">CSE-AI</option>
+                                <option value="ECE">ECE</option>
+                                <option value="ME">ME</option>
+                                <option value="CE">CE</option>
+                            </select>
+                        </div>
+                        <div class="form-group" style="margin-bottom: 0;">
+                            <label class="form-label">Semester</label>
+                            <select id="semFilter" class="form-select" onchange="filterStudents()">
+                                <option value="">All Semesters</option>
+                                <option value="Sem 1">Sem 1</option>
+                                <option value="Sem 2">Sem 2</option>
+                                <option value="Sem 3">Sem 3</option>
+                                <option value="Sem 4">Sem 4</option>
+                                <option value="Sem 5">Sem 5</option>
+                                <option value="Sem 6">Sem 6</option>
+                            </select>
+                        </div>
+                        <div class="form-group" style="margin-bottom: 0; display: flex; align-items: flex-end;">
+                            <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center;"><i class="fa-solid fa-filter"></i> Filter</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 3fr; gap: 1.5rem;">
+                <div class="card">
+                    <div class="card-header"><h3 class="card-title"><i class="fa-solid fa-user-plus" style="color: var(--primary); margin-right: 8px;"></i> Add Student</h3></div>
+                    <form onsubmit="addStudent(event);">
+                        <div class="form-group">
+                            <label class="form-label">Roll Number</label>
+                            <input type="text" id="newRoll" class="form-control" placeholder="e.g. 141" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Student Name</label>
+                            <input type="text" id="newName" class="form-control" placeholder="Full Name" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">College Email</label>
+                            <input type="email" id="newEmail" class="form-control" placeholder="Enter college email" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Branch</label>
+                            <select id="newBranch" class="form-select" required>
+                                <option value="AIML">AIML</option>
+                                <option value="CSE">CSE</option>
+                                <option value="CSE-AI">CSE-AI</option>
+                                <option value="ECE">ECE</option>
+                                <option value="ME">ME</option>
+                                <option value="CE">CE</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Semester</label>
+                            <select id="newSem" class="form-select" required>
+                                <option value="Sem 1">Sem 1</option>
+                                <option value="Sem 2">Sem 2</option>
+                                <option value="Sem 3">Sem 3</option>
+                                <option value="Sem 4">Sem 4</option>
+                                <option value="Sem 5">Sem 5</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center;"><i class="fa-solid fa-save"></i> Save Student</button>
+                    </form>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title"><i class="fa-solid fa-users" style="margin-right: 8px;"></i> Student Roster</h3>
+                        <span id="studentCount" class="badge badge-info">Loading...</span>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table" id="studentTable">
+                            <thead>
+                                <tr><th>Roll No</th><th>Name</th><th>Email</th><th>Branch</th><th>Semester</th><th>Sec</th><th>Action</th></tr>
+                            </thead>
+                            <tbody id="studentBody"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script>
+        let students = [
+            { roll: '101', name: 'Rahul Kumar', email: 'rahul@ssipmt.com', branch: 'AIML', sem: 'Sem 3', sec: 'A' },
+            { roll: '102', name: 'Aman Singh', email: 'aman@ssipmt.com', branch: 'AIML', sem: 'Sem 3', sec: 'A' },
+            { roll: '103', name: 'Ravi Gupta', email: 'ravi@ssipmt.com', branch: 'AIML', sem: 'Sem 3', sec: 'A' },
+            { roll: '104', name: 'Kunal Sharma', email: 'kunal@ssipmt.com', branch: 'AIML', sem: 'Sem 3', sec: 'A' },
+            { roll: '105', name: 'Ananya Patel', email: 'ananya@ssipmt.com', branch: 'AIML', sem: 'Sem 3', sec: 'A' },
+            { roll: '106', name: 'Priya Verma', email: 'priya@ssipmt.com', branch: 'AIML', sem: 'Sem 3', sec: 'B' },
+            { roll: '107', name: 'Deepak Mishra', email: 'deepak@ssipmt.com', branch: 'AIML', sem: 'Sem 3', sec: 'B' },
+            { roll: '108', name: 'Neha Yadav', email: 'neha@ssipmt.com', branch: 'AIML', sem: 'Sem 3', sec: 'B' },
+            { roll: '109', name: 'Arjun Tiwari', email: 'arjun@ssipmt.com', branch: 'AIML', sem: 'Sem 3', sec: 'B' },
+            { roll: '110', name: 'Sneha Joshi', email: 'sneha@ssipmt.com', branch: 'AIML', sem: 'Sem 3', sec: 'B' },
+            { roll: '111', name: 'Aditya Raj', email: 'aditya@ssipmt.com', branch: 'CSE', sem: 'Sem 3', sec: 'A' },
+            { roll: '112', name: 'Rohit Das', email: 'rohit@ssipmt.com', branch: 'CSE', sem: 'Sem 3', sec: 'A' },
+            { roll: '113', name: 'Monika Saini', email: 'monika@ssipmt.com', branch: 'CSE', sem: 'Sem 3', sec: 'A' },
+            { roll: '114', name: 'Vivek Singh', email: 'vivek@ssipmt.com', branch: 'CSE', sem: 'Sem 3', sec: 'B' },
+            { roll: '115', name: 'Kavya Reddy', email: 'kavya@ssipmt.com', branch: 'CSE', sem: 'Sem 3', sec: 'B' },
+            { roll: '116', name: 'Harshit Jain', email: 'harshit@ssipmt.com', branch: 'CSE-AI', sem: 'Sem 3', sec: 'A' },
+            { roll: '117', name: 'Divya Nair', email: 'divya@ssipmt.com', branch: 'CSE-AI', sem: 'Sem 3', sec: 'A' },
+            { roll: '118', name: 'Shivam Chouhan', email: 'shivam@ssipmt.com', branch: 'CSE-AI', sem: 'Sem 3', sec: 'A' },
+            { roll: '119', name: 'Pooja Desai', email: 'pooja@ssipmt.com', branch: 'CSE-AI', sem: 'Sem 3', sec: 'B' },
+            { roll: '120', name: 'Tushar Bhatt', email: 'tushar@ssipmt.com', branch: 'CSE-AI', sem: 'Sem 3', sec: 'B' },
+            { roll: '201', name: 'Akash Soni', email: 'akash@ssipmt.com', branch: 'ECE', sem: 'Sem 3', sec: 'A' },
+            { roll: '202', name: 'Shreya Pandey', email: 'shreya@ssipmt.com', branch: 'ECE', sem: 'Sem 3', sec: 'A' },
+            { roll: '203', name: 'Nikhil Kumar', email: 'nikhil@ssipmt.com', branch: 'ECE', sem: 'Sem 3', sec: 'A' },
+            { roll: '204', name: 'Isha Rawat', email: 'isha@ssipmt.com', branch: 'ECE', sem: 'Sem 3', sec: 'B' },
+            { roll: '205', name: 'Varun Mehta', email: 'varun@ssipmt.com', branch: 'ECE', sem: 'Sem 3', sec: 'B' },
+            { roll: '301', name: 'Rishabh Pal', email: 'rishabh@ssipmt.com', branch: 'ME', sem: 'Sem 3', sec: 'A' },
+            { roll: '302', name: 'Suman Thakur', email: 'suman@ssipmt.com', branch: 'ME', sem: 'Sem 3', sec: 'A' },
+            { roll: '303', name: 'Gaurav Ahuja', email: 'gaurav@ssipmt.com', branch: 'ME', sem: 'Sem 3', sec: 'B' },
+            { roll: '401', name: 'Naman Dubey', email: 'naman@ssipmt.com', branch: 'CE', sem: 'Sem 3', sec: 'A' },
+            { roll: '402', name: 'Trisha Bansal', email: 'trisha@ssipmt.com', branch: 'CE', sem: 'Sem 3', sec: 'A' },
+            { roll: '501', name: 'Mayank Shukla', email: 'mayank@ssipmt.com', branch: 'AIML', sem: 'Sem 1', sec: 'A' },
+            { roll: '502', name: 'Payal Gupta', email: 'payal@ssipmt.com', branch: 'AIML', sem: 'Sem 1', sec: 'A' },
+            { roll: '503', name: 'Abhinav Rao', email: 'abhinav@ssipmt.com', branch: 'AIML', sem: 'Sem 1', sec: 'B' },
+            { roll: '601', name: 'Riya Malhotra', email: 'riya@ssipmt.com', branch: 'CSE', sem: 'Sem 5', sec: 'A' },
+            { roll: '602', name: 'Sahil Bose', email: 'sahil@ssipmt.com', branch: 'CSE', sem: 'Sem 5', sec: 'A' },
+            { roll: '603', name: 'Mansi Arora', email: 'mansi@ssipmt.com', branch: 'CSE', sem: 'Sem 5', sec: 'B' },
+            { roll: '701', name: 'Tanmay Singh', email: 'tanmay@ssipmt.com', branch: 'ECE', sem: 'Sem 5', sec: 'A' },
+            { roll: '702', name: 'Kiran Patel', email: 'kiran@ssipmt.com', branch: 'ECE', sem: 'Sem 5', sec: 'A' },
+            { roll: '801', name: 'Ritika Sharma', email: 'ritika@ssipmt.com', branch: 'ME', sem: 'Sem 5', sec: 'A' },
+            { roll: '802', name: 'Dev Chauhan', email: 'dev@ssipmt.com', branch: 'CE', sem: 'Sem 5', sec: 'A' }
+        ];
+
+        function renderTable(list) {
+            const tbody = document.getElementById('studentBody');
+            document.getElementById('studentCount').textContent = list.length + ' Students';
+            if (list.length === 0) {
+                tbody.innerHTML = '<tr><td colspan="7" style="text-align:center; color: var(--text-muted); padding: 2rem;">No students found.</td></tr>';
+                return;
+            }
+            tbody.innerHTML = list.map((s, idx) => `
+                <tr>
+                    <td><strong>${s.roll}</strong></td>
+                    <td>${s.name}</td>
+                    <td>${s.email}</td>
+                    <td><span class="badge badge-info">${s.branch}</span></td>
+                    <td>${s.sem}</td>
+                    <td>${s.sec}</td>
+                    <td><button class="btn btn-danger" onclick="deleteStudent(${idx})" style="padding: 0.3rem 0.6rem; font-size: 0.75rem;"><i class="fa-solid fa-trash"></i></button></td>
+                </tr>
+            `).join('');
+        }
+
+        function filterStudents() {
+            const search = document.getElementById('searchInput').value.toLowerCase();
+            const branch = document.getElementById('branchFilter').value;
+            const sem = document.getElementById('semFilter').value;
+            const filtered = students.filter(s =>
+                (s.name.toLowerCase().includes(search) || s.roll.includes(search)) &&
+                (branch === '' || s.branch === branch) &&
+                (sem === '' || s.sem === sem)
+            );
+            renderTable(filtered);
+        }
+
+        function deleteStudent(idx) {
+            if (confirm('Delete this student?')) {
+                students.splice(idx, 1);
+                filterStudents();
+            }
+        }
+
+        function addStudent(e) {
+            e.preventDefault();
+            students.unshift({
+                roll: document.getElementById('newRoll').value,
+                name: document.getElementById('newName').value,
+                email: document.getElementById('newEmail').value,
+                branch: document.getElementById('newBranch').value,
+                sem: document.getElementById('newSem').value,
+                sec: 'A'
+            });
+            filterStudents();
+            alert('Student added successfully!');
+            e.target.reset();
+        }
+
+        document.getElementById('searchInput').addEventListener('input', filterStudents);
+        renderTable(students);
+    </script>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Performance Analysis | Smart College Portal</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <a href="student_dashboard.html" class="sidebar-brand">
+                <div class="sidebar-brand-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+                <span>COLLEGE PORTAL</span>
+            </a>
+        </div>
+        <ul class="sidebar-menu">
+            <li class="sidebar-item"><a href="student_dashboard.html" class="sidebar-link"><i class="fa-solid fa-chart-pie"></i> <span>Dashboard</span></a></li>
+            <li class="sidebar-item"><a href="student_attendance.html" class="sidebar-link"><i class="fa-solid fa-calendar-check"></i> <span>My Attendance</span></a></li>
+            <li class="sidebar-item"><a href="student_marks.html" class="sidebar-link"><i class="fa-solid fa-file-lines"></i> <span>My Marks</span></a></li>
+            <li class="sidebar-item"><a href="student_performance.html" class="sidebar-link active"><i class="fa-solid fa-award"></i> <span>Performance Analysis</span></a></li>
+            <li class="sidebar-item"><a href="student_profile.html" class="sidebar-link"><i class="fa-solid fa-id-card"></i> <span>My Profile</span></a></li>
+        </ul>
+    </aside>
+
+    <div class="main-wrapper">
+        <header class="navbar">
+            <div class="navbar-title"><i class="fa-solid fa-university" style="color: var(--primary); margin-right: 8px;"></i> College Management System</div>
+            <div class="navbar-user">
+                <span class="user-badge">STUDENT</span>
+                <span style="font-weight: 600; font-size: 0.9rem;">Rahul Kumar (101)</span>
+                <a href="login.html" class="btn-logout"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
+            </div>
+        </header>
+
+        <main class="content-body">
+            <div class="page-header">
+                <div>
+                    <h1 class="page-title">Personal Academic Analytics</h1>
+                    <p class="page-subtitle">Track performance trends across subjects and examinations</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header"><h3 class="card-title"><i class="fa-solid fa-chart-line" style="color: var(--primary); margin-right: 8px;"></i> Marks Progress Chart</h3></div>
+                <canvas id="progressChart" height="180"></canvas>
+            </div>
+        </main>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script>
+        const ctx = document.getElementById('progressChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ['CT-1', 'CT-2', 'Assignment', 'Mid-Term', 'ESE'],
+                datasets: [{
+                    label: 'Score %',
+                    data: [85, 90, 88, 84, 87],
+                    borderColor: '#2563eb',
+                    backgroundColor: 'rgba(37, 99, 235, 0.1)',
+                    fill: true,
+                    tension: 0.3
+                }]
+            },
+            options: { responsive: true, scales: { y: { beginAtZero: true, max: 100 } } }
+        });
+    </script>
+</body>
+</html>

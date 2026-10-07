@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assigned Students | Smart College Portal</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <a href="teacher_dashboard.html" class="sidebar-brand">
+                <div class="sidebar-brand-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+                <span>COLLEGE PORTAL</span>
+            </a>
+        </div>
+        <ul class="sidebar-menu">
+            <li class="sidebar-item"><a href="teacher_dashboard.html" class="sidebar-link"><i class="fa-solid fa-chart-pie"></i> <span>Dashboard</span></a></li>
+            <li class="sidebar-item"><a href="teacher_attendance.html" class="sidebar-link"><i class="fa-solid fa-calendar-check"></i> <span>Mark Attendance</span></a></li>
+            <li class="sidebar-item"><a href="teacher_marks.html" class="sidebar-link"><i class="fa-solid fa-pen-to-square"></i> <span>Enter Marks</span></a></li>
+            <li class="sidebar-item"><a href="teacher_students.html" class="sidebar-link active"><i class="fa-solid fa-users"></i> <span>Assigned Students</span></a></li>
+            <li class="sidebar-item"><a href="teacher_performance.html" class="sidebar-link"><i class="fa-solid fa-chart-line"></i> <span>Performance</span></a></li>
+        </ul>
+    </aside>
+
+    <div class="main-wrapper">
+        <header class="navbar">
+            <div class="navbar-title"><i class="fa-solid fa-university" style="color: var(--primary); margin-right: 8px;"></i> College Management System</div>
+            <div class="navbar-user">
+                <span class="user-badge">TEACHER</span>
+                <span style="font-weight: 600; font-size: 0.9rem;">Prof. Rajesh Sharma</span>
+                <a href="login.html" class="btn-logout"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
+            </div>
+        </header>
+
+        <main class="content-body">
+            <div class="page-header">
+                <div>
+                    <h1 class="page-title">Assigned Students Roster</h1>
+                    <p class="page-subtitle">View enrolled students in your assigned subjects and classes</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header"><h3 class="card-title"><i class="fa-solid fa-users" style="color: var(--primary); margin-right: 8px;"></i> Enrolled Class List</h3></div>
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr><th>Roll No</th><th>Student Name</th><th>Email</th><th>Branch</th><th>Semester</th><th>Section</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td><strong>101</strong></td><td>Rahul Kumar</td><td>rahul@ssipmt.com</td><td>AIML</td><td>Sem 3</td><td>A</td></tr>
+                            <tr><td><strong>102</strong></td><td>Aman Singh</td><td>aman@ssipmt.com</td><td>AIML</td><td>Sem 3</td><td>A</td></tr>
+                            <tr><td><strong>103</strong></td><td>Ravi Gupta</td><td>ravi@ssipmt.com</td><td>AIML</td><td>Sem 3</td><td>A</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

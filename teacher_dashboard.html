@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teacher Dashboard | Smart College Portal</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <a href="teacher_dashboard.html" class="sidebar-brand">
+                <div class="sidebar-brand-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+                <span>COLLEGE PORTAL</span>
+            </a>
+        </div>
+        <ul class="sidebar-menu">
+            <li class="sidebar-item"><a href="teacher_dashboard.html" class="sidebar-link active"><i class="fa-solid fa-chart-pie"></i> <span>Dashboard</span></a></li>
+            <li class="sidebar-item"><a href="teacher_attendance.html" class="sidebar-link"><i class="fa-solid fa-calendar-check"></i> <span>Mark Attendance</span></a></li>
+            <li class="sidebar-item"><a href="teacher_marks.html" class="sidebar-link"><i class="fa-solid fa-pen-to-square"></i> <span>Enter Marks</span></a></li>
+            <li class="sidebar-item"><a href="teacher_students.html" class="sidebar-link"><i class="fa-solid fa-users"></i> <span>Assigned Students</span></a></li>
+            <li class="sidebar-item"><a href="teacher_performance.html" class="sidebar-link"><i class="fa-solid fa-chart-line"></i> <span>Performance</span></a></li>
+        </ul>
+    </aside>
+
+    <div class="main-wrapper">
+        <header class="navbar">
+            <div class="navbar-title"><i class="fa-solid fa-university" style="color: var(--primary); margin-right: 8px;"></i> College Management System</div>
+            <div class="navbar-user">
+                <span class="user-badge">TEACHER</span>
+                <span style="font-weight: 600; font-size: 0.9rem;">Prof. Rajesh Sharma</span>
+                <a href="login.html" class="btn-logout"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
+            </div>
+        </header>
+
+        <main class="content-body">
+            <div class="page-header">
+                <div>
+                    <h1 class="page-title">Faculty Dashboard</h1>
+                    <p class="page-subtitle">Welcome back, Prof. Rajesh Sharma</p>
+                </div>
+            </div>
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-card-top"><span class="stat-title">Assigned Subjects</span><div class="stat-icon blue"><i class="fa-solid fa-book-open"></i></div></div>
+                    <div class="stat-value">2</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-card-top"><span class="stat-title">Total Students</span><div class="stat-icon purple"><i class="fa-solid fa-users"></i></div></div>
+                    <div class="stat-value">60</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-card-top"><span class="stat-title">Avg Attendance</span><div class="stat-icon green"><i class="fa-solid fa-chart-simple"></i></div></div>
+                    <div class="stat-value">85%</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-card-top"><span class="stat-title">Students < 75%</span><div class="stat-icon red"><i class="fa-solid fa-triangle-exclamation"></i></div></div>
+                    <div class="stat-value">5</div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header"><h3 class="card-title"><i class="fa-solid fa-bolt" style="color: var(--primary); margin-right: 8px;"></i> Quick Faculty Actions</h3></div>
+                <div style="display: flex; gap: 1rem;">
+                    <a href="teacher_attendance.html" class="btn btn-primary" style="padding: 1rem 1.5rem;"><i class="fa-solid fa-calendar-check"></i> Mark Daily Attendance</a>
+                    <a href="teacher_marks.html" class="btn btn-secondary" style="padding: 1rem 1.5rem;"><i class="fa-solid fa-pen-to-square"></i> Enter Exam Marks</a>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
